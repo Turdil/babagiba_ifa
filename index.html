@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baba Ifá Niy Esusegun</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://via.placeholder.com/1920x1080?text=Fundo+Religioso') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+    }
+    nav {
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    section {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px 20px;
+      margin: 20px auto;
+      max-width: 900px;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #ffd700;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .gallery img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
+    }
+    /* Botão de voltar ao topo */
+    #voltar-topo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffd700;
+      color: black;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 10px #000;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Baba Ifá Niy Esusegun</h1>
+    <p>Sabedoria ancestral, conexão espiritual, axé!</p>
+  </header>
+
+  <nav>
+    <a href="#quem-sou">Quem Sou</a>
+    <a href="#rituais">Rituais</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <section id="quem-sou">
+    <h2>Quem é Baba Ifá Niy Esusegun</h2>
+    <p>Baba Ifá é sacerdote de Ifá, iniciado nos mistérios de Orunmilá, com missão de espalhar o conhecimento ancestral e guiar os filhos e filhas de fé no caminho do axé.</p>
+    <img src="Imagem/Imagem baba_giba.jpg" alt="Baba Ifá" style="width: 100%; max-width: 400px; display: block; margin: 20px auto; border-radius: 10px;">
+  </section>
+
+  <section id="rituais">
+    <h2>Rituais e Consultas</h2>
+    <ul>
+      <li>Jogo de Búzios</li>
+      <li>Consulta com o Oráculo de Ifá</li>
+      <li>Iniciações e obrigações</li>
+      <li>Limpezas espirituais</li>
+      <li>Banhos de descarrego e axé</li>
+      <li>Ebós e orientações espirituais</li>
+    </ul>
+  </section>
+
+  <section id="galeria">
+    <h2>Galeria de Axé</h2>
+    <div class="gallery">
+      <img src="Imagem/Imagem cultura_afro.jpg" alt="Ritual 1">
+      <img src="Imagem/Imagem baba_giba2.jpg" alt="Ifá">
+      <img src="Imagem/imagem04.jpg" alt="Orixás">
+      <img src="Imagem/imagem homenagem01.jpg" alt="Cultura Africana">
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p><strong>WhatsApp:</strong> (11) 98394-3767</p>
+    <p><strong>Email:</strong> bronwgil13@gmail.com</p>
+    <p>Siga no Instagram: <a href="https://www.instagram.com/babalorisagiba" target="_blank" style="color: #ffd700;">@babalorisagiba</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/baba.giba.98/photos?locale=pt_BR" target="_blank" style="color: #ffd700;">@BabaIfaNiyEsusegun</a></p>
+    <p>Atendimento com respeito, privacidade e compromisso com a espiritualidade afro-brasileira.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Baba Ifá Niy Esusegun — Feito com amor, respeito e ancestralidade.</p>
+  </footer>
+
+  <button id="voltar-topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <script>
+    // Mostrar botão "voltar ao topo" quando rolar a página
+    window.addEventListener('scroll', () => {
+      const botao = document.getElementById('voltar-topo');
+      botao.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
