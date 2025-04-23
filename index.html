@@ -50,7 +50,7 @@
     ul li {
       margin-bottom: 10px;
     }
-    .gallery {
+     .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -60,6 +60,34 @@
       max-width: 200px;
       border-radius: 10px;
       box-shadow: 0 0 10px #000;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+   .img-zoom {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90vw;
+      max-height: 90vh;
+      box-shadow: 0 0 20px #000;
+      border-radius: 10px;
+      z-index: 9999;
+      background: #000;
+    }
+    .img-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 9998;
+    }
+    
     }
     footer {
       background: rgba(0, 0, 0, 0.8);
@@ -67,20 +95,21 @@
       padding: 20px;
       color: #ccc;
     }
-    /* Botão de voltar ao topo */
-    #voltar-topo {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+    /* Botão  */
+    .btn-musica {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 10px 25px;
+      font-size: 1em;
       background-color: #ffd700;
-      color: black;
-      padding: 10px 15px;
+      color: #000;
       border: none;
-      border-radius: 50%;
+      border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 0 10px #000;
-      font-weight: bold;
-      display: none;
+      transition: background 0.3s;
+    }
+    .btn-musica:hover {
+      background-color: #e6c200;
     }
   </style>
 </head>
@@ -91,13 +120,15 @@
     <p>Sabedoria ancestral, conexão espiritual, axé!</p>
   </header>
   
+<div style="text-align: center;">
+    <button onclick="tocarMusica()" class="btn-musica">🎵 Tocar Música</button>
+    <button onclick="pararMusica()" class="btn-musica">⏹️ Parar Música</button>
+  </div>
+
   <audio id="musicaDeFundo" loop>
     <source src="musica_fundo_axe.mp3" type="audio/mpeg">
     Seu navegador não suporta áudio.
   </audio>
-  
-  <button onclick="document.getElementById('musicaDeFundo').play()">🔊 Tocar música</button>
-  <button onclick="document.getElementById('musicaDeFundo').pause()">🔇 Parar música</button>
 
   <nav>
     <a href="#quem-sou">Quem Sou</a>
@@ -129,8 +160,8 @@
     <div class="gallery">
       <img src="Imagem/Imagem cultura_afro.jpg" alt="Ritual 1">
       <img src="Imagem/Imagem baba_giba2.jpg" alt="Ifá">
-      <img src="Imagem/imagem04.jpg" alt="Orixás">
-      <img src="Imagem/imagem homenagem01.jpg" alt="Cultura Africana">
+      <img src="Imagem/imagemHomenagem_n.jpg" alt="Orixás">
+      <img src="Imagem/imagem07_n.jpg" alt="Cultura Africana">
     </div>
   </section>
 
@@ -147,13 +178,37 @@
     <p>© 2025 Baba Ifá Niy Esusegun — Feito com amor, respeito e ancestralidade.</p>
   </footer>
 
-  <button id="voltar-topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 
   <script>
     // Mostrar botão "voltar ao topo" quando rolar a página
-    window.addEventListener('scroll', () => {
-      const botao = document.getElementById('voltar-topo');
-      botao.style.display = window.scrollY > 300 ? 'block' : 'none';
+    const musica = document.getElementById('musicaDeFundo');
+
+    function tocarMusica() {
+      musica.play();
+    }
+
+    function pararMusica() {
+      musica.pause();
+      musica.currentTime = 0;
+    }
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        const overlay = document.createElement('div');
+        overlay.className = 'img-overlay';
+
+        const zoomImg = document.createElement('img');
+        zoomImg.src = img.src;
+        zoomImg.className = 'img-zoom';
+
+        overlay.addEventListener('click', () => {
+          document.body.removeChild(overlay);
+          document.body.removeChild(zoomImg);
+        });
+
+        document.body.appendChild(overlay);
+        document.body.appendChild(zoomImg);
+      });
     });
   </script>
 </body>
